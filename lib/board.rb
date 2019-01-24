@@ -38,6 +38,14 @@ class Board
     else
       return false
   end
+
+  def puts_board_V1
+    puts " " + "1" + "2" + "3 "
+    puts "A" + @board[0] + @board[1] + @board[2]
+    puts "B" + @board[3] + @board[4] + @board[5]
+    puts "C" + @board[6] + @board[7] + @board[8]
+  end 
+
 end
 
 end
