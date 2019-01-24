@@ -43,7 +43,7 @@ class Game
       choix = Show.new.exaequo
       case choix
       when 'oui'
-        Game.new
+        system('ruby app.rb')
       when 'non'
         Show.new.game_over
       end
