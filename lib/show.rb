@@ -13,7 +13,6 @@ class Show
 	end
 
 	def turn(currentplayer)
-
 		puts "#{currentplayer}, c'est a toi de jouer"
 		puts "Choisi une case"
 		return choix = gets.chomp
@@ -21,7 +20,7 @@ class Show
 
 	def new_game(currentplayer)
 			puts "Bravo #{currentplayer} tu as gagne"
-			puts "On refait une partie ?"
+			puts "\nOn refait une partie ?"
 			return choix = gets.chomp
 	end
 
@@ -30,7 +29,7 @@ class Show
 	end
 
 	def exaequo
-			puts "Exaequo les gars!"
+			puts "\nExaequo les gars!"
 			puts "On refait une partie ?"
 			return choix = gets.chomp
 	end

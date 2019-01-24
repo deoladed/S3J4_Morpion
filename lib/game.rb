@@ -5,7 +5,7 @@ require 'player'
 
 class Game 
 	attr_reader :current_player, :players, :status, :board
-
+#compteur de parties et compteurs de victories
 	def initialize
 		@board = Board.new
 		names = Show.new.names
@@ -32,18 +32,18 @@ class Game
 		end
 
 		if @board.win == true
-			choix Show.new.new_game(@current_player)
+			choix = Show.new.new_game(@current_player.name)
 			case choix
 			when "oui"
-				app.rb
+				Game.new
 			when "non"
 				Show.new.game_over
 			end
-		elsif @board.win == true && @board.nb_tours == 9
+		elsif @board.win == "prout"
 			choix = Show.new.exaequo
 			case choix
 			when "oui"
-				app.rb
+				Game.new
 			when "non"
 				Show.new.game_over
 			end

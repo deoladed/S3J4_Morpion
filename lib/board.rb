@@ -23,29 +23,27 @@ class Board
   end
   
 def win
-	if @nb_tours == 0
-		return false
-	else
-   if @board[0].content == @board[1].content && @board[0].content == @board[2].content
+   if @board[0].content == @board[1].content && @board[0].content == @board[2].content && @board[0].content != " "
      return true
-   elsif @board[3].content == @board[4].content && @board[3].content == @board[5].content
+   elsif @board[3].content == @board[4].content && @board[3].content == @board[5].content && @board[3].content != " "
      return true
-   elsif @board[6].content == @board[7].content && @board[6].content == @board[8].content
+   elsif @board[6].content == @board[7].content && @board[6].content == @board[8].content && @board[6].content != " "
      return true
-   elsif @board[0].content == @board[4].content && @board[0].content == @board[8].content
+   elsif @board[0].content == @board[4].content && @board[0].content == @board[8].content && @board[0].content != " "
      return true
-   elsif @board[6].content == @board[4].content && @board[6].content == @board[2].content
+   elsif @board[6].content == @board[4].content && @board[6].content == @board[2].content && @board[6].content != " "
      return true
-   elsif @board[0].content == @board[3].content && @board[0].content == @board[6].content
+   elsif @board[0].content == @board[3].content && @board[0].content == @board[6].content && @board[0].content != " "
      return true
-   elsif @board[1].content == @board[4].content && @board[1].content == @board[7].content
+   elsif @board[1].content == @board[4].content && @board[1].content == @board[7].content && @board[1].content != " "
      return true
-   elsif @board[2].content == @board[5].content && @board[2].content == @board[8].content
+   elsif @board[2].content == @board[5].content && @board[2].content == @board[8].content && @board[2].content != " "
      return true
+   elsif @nb_tours == 9
+   	return "prout"
    else
      return false
    end
- end
  end
 
   def puts_board_V1
