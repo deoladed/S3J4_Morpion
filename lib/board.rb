@@ -1,6 +1,3 @@
-require 'bundler'
-Bundler.require
-
 
 class Board
   attr_accessor :board, :nb_tours
@@ -22,14 +19,13 @@ class Board
   def board_update(case_chosen, symbol)
   	@nb_tours += 1
   	labonnecase = Case.find_by_name(case_chosen)
-  	# @board.index[case_chosen]
-  	# p board[0].class
-  	# index = 0
-  	# index = 0	if case_chosen == A1
   	labonnecase.change_content(symbol)
   end
   
 def win
+	if @nb_tours == 0
+		return false
+	else
    if @board[0].content == @board[1].content && @board[0].content == @board[2].content
      return true
    elsif @board[3].content == @board[4].content && @board[3].content == @board[5].content
@@ -49,6 +45,7 @@ def win
    else
      return false
    end
+ end
  end
 
   def puts_board_V1

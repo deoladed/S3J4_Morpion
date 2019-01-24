@@ -35,15 +35,7 @@ class Show
 			return choix = gets.chomp
 	end
 
-	# def puts_board(board)
- #    puts " " + "1" + "2" + "3 "
- #    puts "A" + board[0].content + board[1].content + board[2].content
- #    puts "B" + board[3].content + board[4].content + board[5].content
- #    puts "C" + board[6].content + board[7].content + board[8].content
- #  end 
-
-
-	 def puts_board(board)
+	def puts_board(board)
 	 	puts "   " + "1" + "   " + "2" + "   " + "3" + "  "
 	 	puts " +---+---+---+"
 	 	puts " |   |   |   |"
@@ -58,5 +50,5 @@ class Show
 	 	puts "C| " + board[6].content + " | " + board[7].content + " | " + board[8].content + " |"
 	 	puts " |   |   |   |"
 	 	puts " +---+---+---+"
-	 end 
-	end
+	end 
+end
