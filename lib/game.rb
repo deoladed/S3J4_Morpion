@@ -8,6 +8,8 @@ class Game
 
 	def initialize
 		@board = Board.new
+		@tours = @board.nb_tours
+		@status = @board.win
 		names = Show.new.names
 		names[0] = Player.new(names[0], "X")
 		names[1] = Player.new(names[1], "O")
@@ -16,17 +18,18 @@ class Game
 	end
 
 	def turn
-		@status = @board.win
-		if @board.nb_tours.even?
+		
+		if @tours % 2 == 0
 			@current_player = @players[1]
 		else
 			@current_player = @players[0]
 		end
 
 		while @status == false
+			puts "Tour Nr : #{@board.nb_tours}"
 			Show.new.puts_board(@board.board)
 			choix = Show.new.turn(@current_player.name)
-			@board.board_update("@#{choix}", @current_player.symbol)
+			@board.board_update(choix, @current_player.symbol)
 		end
 
 		if @status == true

@@ -6,25 +6,27 @@ class Board
   attr_accessor :board, :nb_tours
   
   def initialize
-  	@A1 = Case.new(" ")
-  	@A2 = Case.new(" ")
-  	@A3 = Case.new(" ")
-		@B1 = Case.new(" ")
-		@B2 = Case.new(" ")
-		@B3 = Case.new(" ")
-		@C1 = Case.new(" ")
-		@C2 = Case.new(" ")
-		@C3 = Case.new(" ")
+  	@A1 = Case.new(" ", "A1")
+  	@A2 = Case.new(" ", "A2")
+  	@A3 = Case.new(" ", "A3")
+		@B1 = Case.new(" ", "B1")
+		@B2 = Case.new(" ", "B2")
+		@B3 = Case.new(" ", "B3")
+		@C1 = Case.new(" ", "C1")
+		@C2 = Case.new(" ", "C2")
+		@C3 = Case.new(" ", "C3")
 		@board = [@A1, @A2, @A3, @B1, @B2, @B3, @C1, @C2, @C3]
 		@nb_tours = 0 
 	end
 
-  def nb_tours
-    @nb_tours += 1
-  end
-
   def board_update(case_chosen, symbol)
-  	case_chosen.change_content(symbol)
+  	@nb_tours += 1
+  	labonnecase = Case.find_by_name(case_chosen)
+  	# @board.index[case_chosen]
+  	# p board[0].class
+  	# index = 0
+  	# index = 0	if case_chosen == A1
+  	labonnecase.change_content(symbol)
   end
   
 def win
