@@ -30,21 +30,21 @@ class Board
   end
   
 def win
-   if @board[0].content == @board[1].content && @board[0] == @board[2].content
+   if @board[0].content == @board[1].content && @board[0].content == @board[2].content
      return true
-   elsif @board[3].content == @board[4].content && @board[3] == @board[5].content
+   elsif @board[3].content == @board[4].content && @board[3].content == @board[5].content
      return true
-   elsif @board[6].content == @board[7].content && @board[6] == @board[8].content
+   elsif @board[6].content == @board[7].content && @board[6].content == @board[8].content
      return true
-   elsif @board[0].content == @board[4].content && @board[0] == @board[8].content
+   elsif @board[0].content == @board[4].content && @board[0].content == @board[8].content
      return true
-   elsif @board[6].content == @board[4].content && @board[6] == @board[2].content
+   elsif @board[6].content == @board[4].content && @board[6].content == @board[2].content
      return true
-   elsif @board[0].content == @board[3].content && @board[0] == @board[6].content
+   elsif @board[0].content == @board[3].content && @board[0].content == @board[6].content
      return true
-   elsif @board[1].content == @board[4].content && @board[1] == @board[7].content
+   elsif @board[1].content == @board[4].content && @board[1].content == @board[7].content
      return true
-   elsif @board[2].content == @board[5].content && @board[2] == @board[8].content
+   elsif @board[2].content == @board[5].content && @board[2].content == @board[8].content
      return true
    else
      return false
