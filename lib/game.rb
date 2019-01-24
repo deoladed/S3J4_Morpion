@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'show'
 require 'board'
 require 'boardcase'
@@ -48,5 +50,3 @@ class Game
 		end
 	end
 end
-
-
