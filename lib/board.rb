@@ -17,10 +17,15 @@ class Board
     @nb_tours = 0
   end
 
-  def board_update(case_chosen, symbol)
+  def board_update(case_chosen, symbol) 
+    labonnecase = Case.find_by_name(case_chosen) # On retrouve la l'objet case a partir de son nom
+    if labonnecase.content != ' ' # Si elle n'est pas vide, on insulte le player
+      puts "TA MERE T'ES AVEUGLE OU QUOI?!!!"
+      Launchy.open("https://www.youtube.com/watch?v=_-NcftIvc3A")
+      return
+    end
+    labonnecase.change_content(symbol) # Sinon on met a jour la case et on incrmente le tour
     @nb_tours += 1
-    labonnecase = Case.find_by_name(case_chosen)
-    labonnecase.change_content(symbol)
   end
 
   def win
