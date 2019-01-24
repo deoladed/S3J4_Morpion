@@ -2,15 +2,15 @@
 
 class Show
 
-	def initialize
+	attr_accessor :names
+
+	def names
 		puts "Joueur 1, quel est ton nom ?"
 		nom1 = gets.chomp
 		puts "Joueur 2, quel est ton nom ?"
 		nom2 = gets.chomp
-		return names = [nom1, nom2]
+		return @names = [nom1, nom2]
 	end
-
-
 
 	def turn(currentplayer)
 		puts "#{currentplayer}, c'est a toi de jouer"
@@ -27,9 +27,17 @@ class Show
 	def game_over
 			puts "Merci au revoir"
 	end
-	
+
 	def exaequo
 			puts "Exaequo les gars!"
 			puts "On refait une partie ?"
 			return choix = gets.chomp
 	end
+
+	def puts_board(board)
+    puts " " + "1" + "2" + "3 "
+    puts "A" + board[0].content + board[1].content + board[2].content
+    puts "B" + board[3].content + board[4].content + board[5].content
+    puts "C" + board[6].content + board[7].content + board[8].content
+  end 
+ end

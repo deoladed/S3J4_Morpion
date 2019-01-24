@@ -1,11 +1,11 @@
 class Case
-	attr_accessor :contenu
+	attr_accessor :content
 
 		def initialize(contenu)
-			@contenu = contenu
+			@content = contenu
 		end
 
 		def change_content(nouveausymbol)
-			@contenu = nouveausymbol
+			@content = nouveausymbol
 		end
 end
