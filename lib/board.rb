@@ -19,23 +19,25 @@ class Board
   end
   
   def win
-
     if @board[0].content == @board[1].content == @board[2].content
+      return true
     if @board[3].content == @board[4].content == @board[5].content
+      return true
     if @board[6].content == @board[7].content == @board[8].content
+      return true
     if @board[0].content == @board[4].content == @board[8].content
+      return true
     if @board[6].content == @board[4].content == @board[2].content
+      return true
     if @board[0].content == @board[3].content == @board[6].content
+      return true
     if @board[1].content == @board[4].content == @board[7].content
+      return true
     if @board[2].content == @board[5].content == @board[8].content 
-
+      return true
+    else
+      return false
+  end
 end
 
-  def to_views
-    @nb_tours
-    @
-    
 end
-
-nouveau = Board.new
-binding.pry
