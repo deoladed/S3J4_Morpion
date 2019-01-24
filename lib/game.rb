@@ -7,11 +7,8 @@ require 'player'
 
 class Game
   attr_reader :current_player, :players, :status, :board
-  # @@parties = 0
-  # compteur de parties et compteurs de victories
+
   def initialize
-    # @@parties += 1
-    # puts "Partie numero #{@@parties}"
     @board = Board.new
     names = Show.new.names
     names[0] = Player.new(names[0], 'X')
