@@ -1,14 +1,11 @@
 class Case
-	attr_accessor :position, :contenu
+	attr_accessor :contenu
 
-		def initialize(position, contenu)
-			@position = position
+		def initialize(contenu)
 			@contenu = contenu
 		end
 
-		def case
+		def change_content(nouveausymbol)
+			@contenu = nouveausymbol
 		end
-	end
-
-case = Case.new("A1", "X")
-case.case
+end
