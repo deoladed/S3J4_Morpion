@@ -50,7 +50,6 @@ class Board
     else
       false
     end
-   end
  end
 end
 
