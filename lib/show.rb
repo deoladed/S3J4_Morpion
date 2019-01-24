@@ -1,5 +1,3 @@
-
-
 class Show
 
 	attr_accessor :names
@@ -12,26 +10,59 @@ class Show
 		return @names = [nom1, nom2]
 	end
 
-	def turn(currentplayer)
-		puts "#{currentplayer}, c'est a toi de jouer"
+	def turn(currentplayer, symbol)
+		puts "\n#{currentplayer} (#{symbol}), c'est a toi de jouer"
 		puts "Choisi une case"
-		return choix = gets.chomp
+		a = gets.chomp
+		unless a == "A1" || a == "A2" || a == "A3" || a == "B1" || a == "B2" || a == "B3" || a == "C1" || a == "C2" || a == "C3"
+			puts "T'as un petit cote Riberry quand t'ecris!!!!!"
+			Launchy.open("http://bescherelletamere.fr/wp-content/uploads/2014/06/d6616875-1b36-4f7f-b821-9c73c3acf2f1_high.jpg")
+			sleep(5)
+			puts "\nEssai encore"
+			turn(currentplayer, symbol)
+		else
+			return a
+		end
 	end
 
 	def new_game(currentplayer)
-			puts "Bravo #{currentplayer} tu as gagne"
-			puts "\nOn refait une partie ?"
-			return choix = gets.chomp
+		Launchy.open("https://www.youtube.com/watch?v=_e61lGbGeu8") 
+		sleep(5)
+		puts "Bravo #{currentplayer} tu as gagne"
+		puts "\nAssez deconne, on refait une partie ? (oui/non)"
+		a = gets.chomp
+		unless a == "oui" || a == "non"
+			puts "T'as un petit cote Riberry quand t'ecris!!!!!"
+			Launchy.open("http://bescherelletamere.fr/wp-content/uploads/2014/06/d6616875-1b36-4f7f-b821-9c73c3acf2f1_high.jpg")
+			sleep(5)
+			puts "\nEssai encore"
+			new_game(currentplayer)
+		else
+			return a
+		end
 	end
 
 	def game_over
-			puts "Merci au revoir"
+		Launchy.open("https://www.youtube.com/watch?v=pM2qjHTZdeI")
+		sleep(5)
+		puts "Merci au revoir"
 	end
 
 	def exaequo
 			puts "\nExaequo les gars!"
+			sleep(1)
+			Launchy.open("https://www.youtube.com/watch?v=XE73XoW5rRM")
 			puts "On refait une partie ?"
-			return choix = gets.chomp
+			a = gets.chomp
+		unless a == "oui" || a == "non"
+			puts "T'as un petit cote Riberry quand t'ecris!!!!!"
+			Launchy.open("http://bescherelletamere.fr/wp-content/uploads/2014/06/d6616875-1b36-4f7f-b821-9c73c3acf2f1_high.jpg")
+			sleep(5)
+			puts "\nEssai encore"
+			new_game(currentplayer)
+		else
+			return a
+		end
 	end
 
 	def puts_board(board)

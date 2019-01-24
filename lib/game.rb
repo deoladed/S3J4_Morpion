@@ -5,8 +5,11 @@ require 'player'
 
 class Game 
 	attr_reader :current_player, :players, :status, :board
+	# @@parties = 0
 #compteur de parties et compteurs de victories
 	def initialize
+		# @@parties += 1
+		# puts "Partie numero #{@@parties}"
 		@board = Board.new
 		names = Show.new.names
 		names[0] = Player.new(names[0], "X")
@@ -16,30 +19,25 @@ class Game
 	end
 
 	def turn
-		# puts "\nTour Nr : #{@board.nb_tours}"
-		# 	Show.new.puts_board(@board.board)
-		# 	choix = Show.new.turn(@player[0].name)
-		# 	@board.board_update(choix, @player[0].symbol)
-
-		@status = @board.win
+		@status = @board.win # On recupere le status de la partie, quelqu'un a gagne ou la grille est pleine?
 		
-		while @board.win == false
-			@board.nb_tours.even? ? @current_player = @players[1] : @current_player = @players[0]
+		while @board.win == false # Si non, on lance la boucle de jeu
+			@board.nb_tours.even? ? @current_player = @players[0] : @current_player = @players[1] #Tour pair, joueur 1 joue et vice-versa
 			puts "\nTour Nr : #{@board.nb_tours}"
-			Show.new.puts_board(@board.board)
-			choix = Show.new.turn(@current_player.name)
-			@board.board_update(choix, @current_player.symbol)
+			Show.new.puts_board(@board.board) # Show affiche le boardgame
+			choix = Show.new.turn(@current_player.name, @current_player.symbol) # Le joueur fait son choix
+			@board.board_update(choix, @current_player.symbol) # On met a joue le boardgame
 		end
 
-		if @board.win == true
+		if @board.win == true # Fin de partie
 			choix = Show.new.new_game(@current_player.name)
 			case choix
 			when "oui"
-				Game.new
+				system("ruby app.rb")
 			when "non"
 				Show.new.game_over
 			end
-		elsif @board.win == "prout"
+		elsif @board.win == "prout" # Ex aequo
 			choix = Show.new.exaequo
 			case choix
 			when "oui"

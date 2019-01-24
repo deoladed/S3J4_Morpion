@@ -1,8 +1,7 @@
-
 class Board
   attr_accessor :board, :nb_tours
   
-  def initialize
+  def initialize # ON cree toutes les cases
   	@A1 = Case.new(" ", "A1")
   	@A2 = Case.new(" ", "A2")
   	@A3 = Case.new(" ", "A3")
@@ -12,17 +11,22 @@ class Board
 		@C1 = Case.new(" ", "C1")
 		@C2 = Case.new(" ", "C2")
 		@C3 = Case.new(" ", "C3")
-		@board = [@A1, @A2, @A3, @B1, @B2, @B3, @C1, @C2, @C3]
+		@board = [@A1, @A2, @A3, @B1, @B2, @B3, @C1, @C2, @C3] #Et on en fait une array
 		@nb_tours = 0 
 	end
 
-  def board_update(case_chosen, symbol)
+  def board_update(case_chosen, symbol) 
+  	labonnecase = Case.find_by_name(case_chosen) # On retrouve la l'objet case a partir de son nom
+  	if labonnecase.content != ' ' # Si elle n'est pas vide, on insulte le player
+  		puts "TA MERE T'ES AVEUGLE OU QUOI?!!!"
+  		Launchy.open("https://www.youtube.com/watch?v=_-NcftIvc3A")
+  		return
+  	end
+  	labonnecase.change_content(symbol) # Sinon on met a jour la case et on incrmente le tour
   	@nb_tours += 1
-  	labonnecase = Case.find_by_name(case_chosen)
-  	labonnecase.change_content(symbol)
   end
   
-def win
+def win # LE conditions de fin de jeu
    if @board[0].content == @board[1].content && @board[0].content == @board[2].content && @board[0].content != " "
      return true
    elsif @board[3].content == @board[4].content && @board[3].content == @board[5].content && @board[3].content != " "
@@ -39,20 +43,12 @@ def win
      return true
    elsif @board[2].content == @board[5].content && @board[2].content == @board[8].content && @board[2].content != " "
      return true
-   elsif @nb_tours == 9
+   elsif @nb_tours == 9 # Exaequo
    	return "prout"
    else
      return false
    end
  end
-
-  def puts_board_V1
-    puts " " + "1" + "2" + "3 "
-    puts "A" + @board[0] + @board[1] + @board[2]
-    puts "B" + @board[3] + @board[4] + @board[5]
-    puts "C" + @board[6] + @board[7] + @board[8]
-  end 
-
 end
 
 
