@@ -46,7 +46,7 @@ class Board
     elsif @board[2].content == @board[5].content && @board[2].content == @board[8].content && @board[2].content != ' '
       true
     elsif @nb_tours == 9
-      'prout'
+      return "prout" 
     else
       false
     end

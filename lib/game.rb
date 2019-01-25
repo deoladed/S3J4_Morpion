@@ -36,7 +36,7 @@ class Game
       when 'non'
         Show.new.game_over
       end
-    elsif @board.win == 'prout' # Ex aequo
+    elsif @board.win == "prout" # Ex aequo
       choix = Show.new.exaequo
       case choix
       when 'oui'
